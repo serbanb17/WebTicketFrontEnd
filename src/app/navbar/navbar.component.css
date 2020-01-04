@@ -1,0 +1,8 @@
+.navbar-toggler:focus,.navbar-toggler:active {
+    outline: none !important;
+    box-shadow: none;
+ }
+
+.navbar-brand>img{
+    height: 1.5em;
+}

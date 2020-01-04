@@ -1,0 +1,64 @@
+<div class="row align-items-center justify-content-center">
+    <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8">
+
+        <form #form="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="eventNameFormControl">Numele evenimentului:</label>
+                <input type="text" class="form-control" id="eventNameFormControl" name="eventName" [(ngModel)]="eventM.name"
+                    placeholder="ex: Concert zilele orașului" #eventNameCheck="ngModel" maxlength=50 required>
+                <div [hidden]="eventNameCheck.valid" class="alert alert-danger my-2" role="alert">Câmpul pentru nume
+                    este
+                    obligatoriu!</div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventStartDateFormControl">Data la care începe evenimentul:</label>
+                <input type="date" class="form-control" id="eventStartDateFormControl" name="eventStartDate"
+                    [(ngModel)]="startDate" #eventStartDateCheck="ngModel" required>
+                <div [hidden]="eventStartDateCheck.valid" class="alert alert-danger my-2" role="alert">Câmpul pentru
+                    data de început este obligatoriu!</div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventEndDateFormControl">Data la care se termină evenimentul:</label>
+                <input type="date" class="form-control" id="eventEndDateFormControl" name="eventEndDate" [(ngModel)]="endDate"
+                    #eventEndDateCheck="ngModel" required>
+                <div [hidden]="eventEndDateCheck.valid" class="alert alert-danger my-2" role="alert">Câmpul pentru data
+                    de sfârșit este obligatoriu!</div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventLocationFormControl">Locația unde are loc evenimentul:</label>
+                <input type="text" class="form-control" id="eventLocationFormControl" name="eventLocation" [(ngModel)]="eventM.location"
+                    placeholder="ex: Iași, Piața Unirii" #eventLocationCheck="ngModel" maxlength=50 required>
+                <div [hidden]="eventLocationCheck.valid" class="alert alert-danger my-2" role="alert">Câmpul pentru
+                    locație este obligatoriu!</div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventDescriptionFormControl">Descrierea evenimentului:</label>
+                <textarea class="form-control" id="eventDescriptionFormControl" name="eventDescription" [(ngModel)]="eventM.description"
+                    placeholder="cât mai relevantă, maxim 1000 de caractere" #eventDescriptionCheck="ngModel" rows=10
+                    maxlength=10000 required></textarea>
+                <div [hidden]="eventDescriptionCheck.valid" class="alert alert-danger my-2" role="alert">Câmpul pentru
+                    descriere este obligatoriu!</div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventUrlFormControl">Adresa către site-ul evenimentului:</label>
+                <input type="url" class="form-control" id="eventUrlFormControl" name="eventUrl" [(ngModel)]="eventM.url"
+                    placeholder="ex: http//www.primariaiasi/concert" #eventUrlCheck="ngModel" maxlength=2000 required>
+                <div [hidden]="eventUrlCheck.valid" class="alert alert-danger my-2" role="alert">Este obligatoriu să adăugați o adresă web!</div>
+            </div>
+
+            <div class="form-group">
+                <label for="eventImageFormControl">Imagine (optional):&emsp;</label>
+                <input class="d-none" type="file" (change)="selectFile(fileInput.files)" #fileInput>
+                <button type="button" class="btn btn-primary" (click)="fileInput.click()">Alege</button>
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Submit</button>
+        </form>
+
+    </div>
+</div>
