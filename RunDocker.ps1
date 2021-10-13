@@ -1,0 +1,1 @@
+docker run --rm -p 44003:80 webticketfrontend
